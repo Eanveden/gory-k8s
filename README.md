@@ -1,4 +1,4 @@
-# gory-k8s
+# gory-k8s  Because its gory ¯\_(ツ)_/¯ 
 
 Deploy a k8s cluster on azure using terraform
 
