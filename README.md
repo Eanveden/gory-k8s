@@ -2,6 +2,7 @@
 
 Deploy a k8s cluster on azure using terraform
 
+#TF VARS TEMPLATE
 ```
 subscription_id    = "00000000-0000-0000-0000-000000000000"
 tenant_id          = "00000000-0000-0000-0000-000000000000"
@@ -15,7 +16,7 @@ location                    = ""
 cluster_name                = ""
 dns_prefix                  = ""
 ```
-
+#VARIABLES W/ DEFAULTS
 | Variable  | Format | Default |
 | ------------- | ------------- | ------------- |
 | subscription_id | 00000000-0000-0000-0000-000000000000  | None  |
@@ -30,3 +31,30 @@ dns_prefix                  = ""
 | location  | String  | East US  |
 | dns_prefix  | String  | k8s  |
 | creator  | String  | erik  |
+
+# Steps (Only Linux)
+
+## 1. This project use symlinks in the storage folder (If they do not work for some reason you can create them in the storage folder):
+```
+cd storage
+ln -s ../provider.tf provider.tf
+ln -s ../variables.tf variables.tf
+```
+
+## 2. Create storage account w/ container
+```
+cd storage
+tf plan -var-file tf.vars
+tf apply -var-file tf.vars
+```
+
+## 3. Create cluster
+```
+cd ..
+tf plan -var-file tf.vars
+tf apply -var-file tf.vars
+```
+
+## 4. Enjoy!
+
+
