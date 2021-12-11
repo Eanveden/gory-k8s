@@ -15,10 +15,6 @@ variable "cluster_name" {
   default = "k8s"
 }
 
-variable "resource_group_name" {
-  default = "rg-group"
-}
-
 variable "location" {
   default = "East US"
 }
@@ -51,5 +47,7 @@ variable "k8s_subnet_address_prefixes" {
   default = ["10.0.0.0/24"]
 }
 
+#Required
 variable "subscription_id" {}
 variable "tenant_id" {}
+variable "resource_group_name" {}
