@@ -1,9 +1,7 @@
 # gory-k8s
-
-Gory, first attempt at creating a k8s cluster using terraform and azure 
-
-¯\_(ツ)_/¯ 
-
+ 
+        ¯\_(ツ)_/¯  Gory, first attempt at creating a k8s cluster using terraform and azure    
+ 
 Deploy a k8s cluster on azure using terraform
 
 #TF VARS TEMPLATE
