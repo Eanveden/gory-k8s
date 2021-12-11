@@ -1,10 +1,10 @@
 # gory-k8s
  
-        ¯\_(ツ)_/¯  Gory, first attempt at creating a k8s cluster using terraform and azure    
+¯\_(ツ)_/¯  Gory, first attempt at creating a k8s cluster using terraform and azure    
  
 Deploy a k8s cluster on azure using terraform
 
-#TF VARS TEMPLATE
+# TF VARS TEMPLATE
 ```
 subscription_id    = "00000000-0000-0000-0000-000000000000"
 tenant_id          = "00000000-0000-0000-0000-000000000000"
@@ -18,7 +18,7 @@ location                    = ""
 cluster_name                = ""
 dns_prefix                  = ""
 ```
-#VARIABLES W/ DEFAULTS
+# VARIABLES W/ DEFAULTS
 | Variable  | Format | Default |
 | ------------- | ------------- | ------------- |
 | subscription_id | 00000000-0000-0000-0000-000000000000  | None  |
