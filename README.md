@@ -1,6 +1,4 @@
-# gory-k8s
- 
-    ¯\_(ツ)_/¯ its gory   
+# terraform-k8s-azure implementation   
  
 Deploy a k8s cluster on azure using terraform
 
