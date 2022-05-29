@@ -20,7 +20,7 @@ variable "location" {
 }
 
 variable "creator" {
-  default = "erik"
+  default = "thisguy"
 }
 
 variable "environment" {

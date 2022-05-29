@@ -1,4 +1,8 @@
 resource "azurerm_kubernetes_cluster" "k8s" {
+  depends_on = [
+    azurerm_resource_group.erik_k8s
+  ]
+
   name                = var.cluster_name
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -6,11 +10,13 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   tags                = local.tags
 
   default_node_pool {
-    name            = "agentpool"
-    node_count      = var.agent_count
-    vm_size         = "Standard_D2_v2"
-    os_disk_size_gb = 30
-    vnet_subnet_id  = azurerm_subnet.k8s_subnet.id
+    name                = "agentpool"
+    node_count          = var.agent_count
+    vm_size             = "Standard_D2_v2"
+    os_disk_size_gb     = 30
+    enable_auto_scaling = true
+    max_count           = 80
+    min_count           = 1
   }
 
   linux_profile {
@@ -26,7 +32,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   }
 
   network_profile {
-    load_balancer_sku  = "Standard"
+    load_balancer_sku  = "standard"
     network_plugin     = "azure"
     network_policy     = "azure"
     service_cidr       = var.k8s_service_cidr
@@ -35,3 +41,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   }
 }
 
+resource "azurerm_resource_group" "erik_k8s" {
+  name     = var.resource_group_name
+  location = var.location
+}
